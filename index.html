@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNM DESIGN | Creative Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6E45E2;
+            --secondary: #300064;
+            --accent: #e7d8f4;
+            --dark: #2A2D3E;
+            --light: #F9F9FF;
+            --extra1: #B24592;
+            --extra2: #F15F79;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--extra1));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+         /* Floating Blobs */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .blob-1 {
+            background: var(--primary);
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            background: var(--accent);
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .blob-3 {
+            background: var(--secondary);
+            width: 250px;
+            height: 250px;
+            top: 60%;
+            left: 30%;
+            animation: float 7s ease-in-out infinite 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(0, 100px); }
+            75% { transform: translate(-50px, 50px); }
+        }
+
+        /* Header Styles - LOGO VERGRÖßERT */
+        header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            width: 400px; /* Vergrößert von 150px */
+            margin: 0 auto 1.5rem; /* Mehr Abstand unter dem Logo */
+            animation: pulse 4s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+            transition: transform 0.5s ease;
+        }
+
+        .logo-container:hover img {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            margin: 1.5rem 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--extra2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.1rem;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.3rem;
+            letter-spacing: 0.3rem;
+             background: linear-gradient(90deg, var(--primary), var(--accent), var(--extra2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.1rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 10%;
+            position: relative;
+            background-color: rgba(249, 249, 255, 0.7);
+            backdrop-filter: blur(10px);
+            margin: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+   footer {
+    text-align: center;
+}
+
+footer h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: var(--dark);
+    position: relative;
+    display: inline-block;
+}
+
+
+   footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+
+
+        /* Business Card Section */
+        .business-card-container {
+            perspective: 1000px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .business-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                          transparent, 
+                          rgba(110, 69, 226, 0.1), 
+                          transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .business-card:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+        }
+
+        .business-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* PDF Portfolio Gallery */
+        .pdf-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pdf-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1.414;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .pdf-preview {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #f5f7fa, #e4e8f0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pdf-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            z-index: 2;
+        }
+
+        .pdf-preview::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%236E45E2" stroke-width="0.5" opacity="0.1"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .pdf-info {
+            padding: 1.5rem;
+            background: white;
+            text-align: center;
+        }
+
+        .pdf-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .pdf-category {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        footer {
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-icons a {
+            position: relative;
+            color: white;
+            font-size: 1.8rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--extra1));
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(110, 69, 226, 0.3);
+        }
+
+        .contact-icons a:nth-child(2) {
+            background: linear-gradient(45deg, var(--accent), var(--extra2));
+            box-shadow: 0 10px 30px rgba(255, 126, 95, 0.3);
+        }
+
+        .contact-icons a:nth-child(3) {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            box-shadow: 0 10px 30px rgba(253, 29, 29, 0.3);
+        }
+
+        .contact-icons a:nth-child(4) {
+            background: linear-gradient(45deg, var(--secondary), #11998e);
+            box-shadow: 0 10px 30px rgba(136, 211, 206, 0.3);
+        }
+        .bes {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--dark);
+        }
+
+        .bes::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        .contact-icons a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .contact-icons a:hover {
+            transform: translateY(-10px) rotate(10deg) scale(1.1);
+        }
+
+        .contact-icons a:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+                margin: 1rem;
+            }
+
+            .pdf-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-icons a {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        .pdf-preview {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #f5f7fa, #e4e8f0);
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Feste Höhe für Vorschau */
+        }
+
+        .pdf-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+        }
+
+        .pdf-icon-overlay {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Neue 3D Scroll-Animation */
+        .scroll-container {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .scroll-animate {
+            transform: translateZ(0) scale(1);
+            opacity: 1;
+        }
+
+        .scroll-start {
+            transform: translateZ(-200px) scale(0.9);
+            opacity: 0.5;
+            filter: blur(2px);
+        }
+
+        /* Verstärkter Effekt für den Business Card Container */
+        .business-card-container.scroll-start {
+            transform: translateZ(-300px) scale(0.8);
+        }
+
+        /* Verzögerungen für gestaffelte Animation */
+        section:nth-child(1) { transition-delay: 0.1s; }
+        section:nth-child(2) { transition-delay: 0.3s; }
+        section:nth-child(3) { transition-delay: 0.5s; }
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="gradient-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="JNM Design Logo" id="logo">
+        <h1>JNM DESIGN</h1>
+        <div><h2>CARD • LOGO • WEBSITE</h2></div>
+        </div>
+    <div> 
+        
+        
+    </header>
+
+  
+ 
+    <!-- [Vorherige HTML-Elemente bleiben gleich] -->
+  <section id="business-card">
+        <h3 class="bes">MY BUSINESS CARD</h3>
+        <div class="business-card-container">
+            <div class="business-card">
+                <img src="2.jpg" alt="Mohamad Janem Business Card">
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+
+        <h3 class="bes">PORTFOLIO WORKS</h3>
+        <div class="pdf-gallery">
+            <!-- PDF Portfolio Items mit Vorschaubildern -->
+            <a href="p.1.pdf" class="pdf-item" target="_blank">
+                <div class="pdf-preview">
+                    <!-- Ersetze 'preview1.jpg' mit deinem Vorschaubild -->
+                    <img src="5.jpg" alt="Logo Design Preview" class="pdf-thumbnail">
+                    <div class="pdf-icon-overlay">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                </div>
+                <div class="pdf-info">
+                    <div class="pdf-title">Logo</div>
+                    <div class="pdf-category">Business Card</div>
+                </div>
+            </a>
+            
+            <a href="p.2.pdf" class="pdf-item" target="_blank">
+                <div class="pdf-preview">
+                    <img src="1.jpg" alt="Web Design Preview" class="pdf-thumbnail">
+                    <div class="pdf-icon-overlay">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                </div>
+                <div class="pdf-info">
+                    <div class="pdf-title">Logo</div>
+                    <div class="pdf-category">Business Card</div>
+                </div>
+            </a>
+            
+            <a href="p.3.pdf" class="pdf-item" target="_blank">
+                <div class="pdf-preview">
+                    <img src="6.jpg" alt="Print Design Preview" class="pdf-thumbnail">
+                    <div class="pdf-icon-overlay">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                </div>
+                <div class="pdf-info">
+                    <div class="pdf-title">Logo</div>
+                    <div class="pdf-category">Business Card</div>
+                </div>
+            </a>
+              <a href="p.4.pdf" class="pdf-item" target="_blank">
+                <div class="pdf-preview">
+                    <img src="3.jpg" alt="Web Design Preview" class="pdf-thumbnail">
+                    <div class="pdf-icon-overlay">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                </div>
+                <div class="pdf-info">
+                    <div class="pdf-title">Logo</div>
+                    <div class="pdf-category">Business Card</div>
+                </div>
+            </a>
+        </div>
+    </section>
+<script>        /* Scroll Animation Classes */
+        // Intensivere 3D Scroll-Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollContainers = document.querySelectorAll('section, .business-card-container');
+            
+            // Initialzustand setzen
+            scrollContainers.forEach(container => {
+                container.classList.add('scroll-container', 'scroll-start');
+                container.style.transition = `transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                                            opacity 0.8s ease, 
+                                            filter 0.8s ease`;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-animate');
+                        entry.target.classList.remove('scroll-start');
+                    } else {
+                        // Optional: Zurücksetzen beim Verlassen des Viewports
+                        // entry.target.classList.remove('scroll-animate');
+                        // entry.target.classList.add('scroll-start');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -100px 0px"
+            });
+
+            scrollContainers.forEach(container => {
+                observer.observe(container);
+            });
+
+            // Parallax-Effekt für Header-Elemente
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const header = document.querySelector('header');
+                const logo = document.querySelector('.logo-container');
+                
+                // Intensivere Parallax-Wirkung
+                header.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+                logo.style.transform = `translateY(${scrollPosition * 0.3}px) scale(${1 + scrollPosition * 0.0005})`;
+            });
+        });
+</script>
+</body>
+ <footer>
+        <h3>LET'S CREATE TOGETHER</h3>
+        <div class="contact-icons">
+            <a href="tel:+4368181382991" aria-label="Phone"><i class="fas fa-phone"></i></a>
+            <a href="mailto:mohamadjanem2002@icloud.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/jnm.design?igsh=ZDJrcDhhZGNkYjY5&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</html>
+
+   
